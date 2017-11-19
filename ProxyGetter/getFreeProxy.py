@@ -43,7 +43,7 @@ class GetFreeProxy(object):
         抓取无忧代理 http://www.data5u.com/
         :param page: 页数
         :return:
-        """
+        
         url_list = ['http://www.data5u.com/',
                     'http://www.data5u.com/free/',
                     'http://www.data5u.com/free/gngn/index.shtml',
@@ -57,6 +57,15 @@ class GetFreeProxy(object):
                 except Exception as e:
                     pass
 
+        
+        from proxyfile
+        """
+        with open('proxies', 'r') as f:
+           for line in f:
+              yield line
+
+                  
+                  
     @staticmethod
     def freeProxySecond(proxy_number=100):
         """
@@ -149,14 +158,6 @@ class GetFreeProxy(object):
         except Exception as e:
             pass
          
-    @staticmethod
-    def freeProxySeventh():
-        """
-        from proxyfile
-        """
-        with open('proxies', 'r') as f:
-           for line in f:
-              yield line
 
 
 if __name__ == '__main__':
