@@ -94,7 +94,7 @@ def validUsefulProxy(proxy):
     """
     if isinstance(proxy, bytes):
         proxy = proxy.decode('utf8')
-    proxies = {"http": "http://{proxy}".format(proxy=proxy)}
+    proxies = {"https": "http://{proxy}".format(proxy=proxy)}
     try:
         # 超过20秒的代理就不要了
         r = requests.get('https://pgorelease.nianticlabs.com/plfe/version', proxies=proxies, headers= {'user-agent': 'Niantic App'}, timeout=8, verify=False)
