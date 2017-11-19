@@ -149,14 +149,14 @@ class GetFreeProxy(object):
         except Exception as e:
             pass
          
-     @staticmethod
-     def freeProxySeventh():
-         """
-         from proxyfile
-         """
-         with open('proxies', 'r') as f:
-            for line in f:
-               yield line
+    @staticmethod
+    def freeProxySeventh():
+        """
+        from proxyfile
+        """
+        with open('proxies', 'r') as f:
+           for line in f:
+              yield line
 
 
 if __name__ == '__main__':
