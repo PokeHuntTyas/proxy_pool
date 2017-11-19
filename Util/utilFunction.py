@@ -97,7 +97,7 @@ def validUsefulProxy(proxy):
     proxies = {"http": "http://{proxy}".format(proxy=proxy)}
     try:
         # 超过20秒的代理就不要了
-        r = requests.get('https://sso.pokemon.com/sso/login', proxies=proxies, headers= {'user-agent': 'pokemongo/1 CFNetwork/758.5.3 Darwin/15.6.0'}, timeout=8, verify=False)
+        r = requests.get('https://pgorelease.nianticlabs.com/plfe/version', proxies=proxies, headers= {'user-agent': 'Niantic App'}, timeout=8, verify=False)
         if r.status_code == 200:
             logger.info('%s is ok' % proxy)
             return True
