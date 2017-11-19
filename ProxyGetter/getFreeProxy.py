@@ -148,6 +148,15 @@ class GetFreeProxy(object):
                 yield '{}:{}'.format(row['ip'], row['port'])
         except Exception as e:
             pass
+         
+     @staticmethod
+     def freeProxySeventh():
+         """
+         from proxyfile
+         """
+         with open('proxies', 'r') as f:
+            for line in f:
+               yield line
 
 
 if __name__ == '__main__':
