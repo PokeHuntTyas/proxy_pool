@@ -13,6 +13,9 @@
 """
 import re
 import requests
+import base64
+from bs4 import BeautifulSoup as bs
+
 
 try:
     from importlib import reload  # py3 实际不会实用，只是为了不显示语法错误
@@ -157,9 +160,25 @@ class GetFreeProxy(object):
                 yield '{}:{}'.format(row['ip'], row['port'])
         except Exception as e:
             pass
-         
-
-
+    @staticmethod
+    def freeProxySeventh():
+        BASE_URL = "https://proxy-list.org/english/index.php?p=" 
+        Re_Pattern_IP = re.compile("(.*):")
+	     Re_Pattern_PORT = re.compile(":(.*)")
+        for startingURLparam in range(1, 11):
+            try:
+                HTML_ProxyPage = requests.get(BASE_URL+str(startingURLparam)).content
+                soup = bs(HTML_ProxyPage,"html.parser")
+                for Raw_ProxyInfo in soup.find_all("ul",{"class":None}):
+                     ip_port = str(base64.b64decode(Raw_ProxyInfo.find("li",{"class":"proxy"}).text.replace("Proxy('","").replace("')","")), "utf-8")
+                     IP = re.findall(Re_Pattern_IP, ip_port)[0]
+                     PORT = re.findall(Re_Pattern_PORT, ip_port)[0]
+                     PROTOCOL = Raw_ProxyInfo.find("li",{"class":"https"}).text
+                     if PROTOCOL != "-":
+                         yield'{}:{}'.format(IP, PORT)
+            except Exception as e:
+                pass
+               
 if __name__ == '__main__':
     gg = GetFreeProxy()
     # for e in gg.freeProxyFirst():
