@@ -180,7 +180,7 @@ class GetFreeProxy(object):
                 pass
 	
     @staticmethod
-    def freeProxyFirst(page=10):
+    def freeProxyEight(page=10):
         """
         抓取无忧代理 http://www.data5u.com/
         :param page: 页数
