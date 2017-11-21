@@ -164,7 +164,7 @@ class GetFreeProxy(object):
     def freeProxySeventh():
         BASE_URL = "https://proxy-list.org/english/index.php?p=" 
         Re_Pattern_IP = re.compile("(.*):")
-            Re_Pattern_PORT = re.compile(":(.*)")
+        Re_Pattern_PORT = re.compile(":(.*)")
         for startingURLparam in range(1, 11):
             try:
                 HTML_ProxyPage = requests.get(BASE_URL+str(startingURLparam)).content
