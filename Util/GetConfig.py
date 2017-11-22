@@ -56,6 +56,14 @@ class GetConfig(object):
     @LazyProperty
     def host_port(self):
         return self.config_file.get('HOST', 'port')
+   
+    @LazyProperty
+    def username(self):
+        return self.config_file.get('HOST', 'username')
+     
+    @LazyProperty
+    def password(self):
+        return self.config_file.get('HOST', 'password')
 
 if __name__ == '__main__':
     gg = GetConfig()
