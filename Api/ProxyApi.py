@@ -37,7 +37,7 @@ api_list = {
 
 def check_auth(username, password):
    config = GetConfig()
-   return username == config.username and password = config.password
+   return username == config.username and password == config.password
 
 def authenticate():
     return Response(
