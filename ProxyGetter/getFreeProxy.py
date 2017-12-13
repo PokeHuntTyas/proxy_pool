@@ -179,25 +179,6 @@ class GetFreeProxy(object):
             except Exception as e:
                 pass
 	
-    @staticmethod
-    def freeProxyEight(page=10):
-        """
-        抓取无忧代理 http://www.data5u.com/
-        :param page: 页数
-        :return:
-        """
-        url_list = ['http://www.data5u.com/',
-                    'http://www.data5u.com/free/',
-                    'http://www.data5u.com/free/gngn/index.shtml',
-                    'http://www.data5u.com/free/gnpt/index.shtml']
-        for url in url_list:
-            html_tree = getHtmlTree(url)
-            ul_list = html_tree.xpath('//ul[@class="l2"]')
-            for ul in ul_list:
-                try:
-                    yield ':'.join(ul.xpath('.//li/text()')[0:2])
-                except Exception as e:
-                    pass
 
 
         
